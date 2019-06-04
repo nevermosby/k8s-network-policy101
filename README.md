@@ -21,14 +21,15 @@ networkPolicy:
 - hello-client-fail
   - it is a deployment labeled with *`app=fail`*
 
-Those two deployments are in one yaml: [hello-client.yaml](./hello-client.yaml)
+Those two deployments are in one yaml: [hello-client.yaml](./workload/hello-client.yaml)
 
 - hello-server
   - Deployment and service labeled with *`hello-server`*
-  - The workload manifest is [hello-server.yaml](./hello-server.yaml)
+  - The workload manifest is [hello-server.yaml](./workload/hello-server.yaml)
 
 ## Create network policy resource for pod level
-Make the *`hello-server`* workload only be accessed by the pod labeled with *`app=pass`*, aka pod "hello-client-pass"
+Our goal is to make the *`hello-server`* workload only be accessed by the pod labeled with *`app=pass`*, aka pod "hello-client-pass".
+Thus, the network policy can be created with the file: [network-policy-pod.yaml](./network-policy/network-policy-pod.yaml)
 
 You should find the normal output in the "hello-client-pass" pod:
 ```bash
@@ -44,7 +45,13 @@ On the other hand, you should find the timeout message in the "hello-client-fail
 Connecting to hello-server.default.svc (hello-server.default.svc)|10.19.250.137|:8080... failed: Connection timed out.
 Retrying.
 ```
+## Create network policy resource for namespace level
+This time, our goal is to make *`hello-server`* workload only be accessed by the workload of the specified namespace, which is labeled with *`team: green`*. You can find the resource file here: [network-policy-namespace.yaml](./network-policy/network-policy-namespace.yaml)
+
+You should find:
+- the workload of the **default** namesapce cannot access the *`hello-server`* service anymore
+- the workload in the namespace labeled with *`team:green`* can have access to the *`hello-server`* service in the **default** namespace
 
 ## Default network policy (TODO)
 - deny all traffic from other namespaces
-- egress
+- whitelist for egress
