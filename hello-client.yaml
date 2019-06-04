@@ -47,7 +47,7 @@ spec:
 
       # Define container properties
       containers:
-      - image: centos:7
+      - image: robolwq/centos:7-wget
         name: hello-client-pass
 
         # A simple while loop that attempts to access the hello-server service every
@@ -96,7 +96,7 @@ spec:
 
       # Define container properties
       containers:
-      - image: centos:7
+      - image: robolwq/centos:7-wget
         name: hello-client-fail
 
         # A simple while loop that attempts to access the hello-server service every
