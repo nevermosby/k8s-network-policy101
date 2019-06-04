@@ -44,3 +44,7 @@ On the other hand, you should find the timeout message in the "hello-client-fail
 Connecting to hello-server.default.svc (hello-server.default.svc)|10.19.250.137|:8080... failed: Connection timed out.
 Retrying.
 ```
+
+## Default network policy (TODO)
+- deny all traffic from other namespaces
+- egress
