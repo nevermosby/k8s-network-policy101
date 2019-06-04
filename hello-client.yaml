@@ -53,7 +53,7 @@ spec:
         # A simple while loop that attempts to access the hello-server service every
         # two seconds.
         command: ["sh", "-c"]
-        args: ["while true; do wget -qO- --timeout=2 http://hello-server.default.svc:8080; sleep 2; done"]
+        args: ["while true; do wget --timeout=2 http://hello-server.default.svc:8080; sleep 2; done"]
 
         # Container-level security settings
         # Note, containers are unprivileged by default
@@ -102,7 +102,7 @@ spec:
         # A simple while loop that attempts to access the hello-server service every
         # two seconds.
         command: ["sh", "-c"]
-        args: ["while true; do wget -qO- --timeout=2 http://hello-server.default.svc:8080; sleep 2; done"]
+        args: ["while true; do wget --timeout=2 http://hello-server.default.svc:8080; sleep 2; done"]
 
         # Container-level security settings
         # Note, containers are unprivileged by default
