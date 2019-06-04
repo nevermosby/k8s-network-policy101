@@ -47,7 +47,7 @@ spec:
 
       # Define container properties
       containers:
-      - image: centos:7.5
+      - image: centos:7
         name: hello-client-pass
 
         # A simple while loop that attempts to access the hello-server service every
@@ -62,7 +62,7 @@ spec:
           readOnlyRootFilesystem: true
 
 ---
-# hello-client-blocked deployment
+# hello-client-fail deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -96,8 +96,8 @@ spec:
 
       # Define container properties
       containers:
-      - image: centos:7.5
-        name: hello-client-blocked
+      - image: centos:7
+        name: hello-client-fail
 
         # A simple while loop that attempts to access the hello-server service every
         # two seconds.
