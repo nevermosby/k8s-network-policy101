@@ -14,3 +14,15 @@ networkPolicy:
 ...
 
 ```
+
+## Create workload for test
+- hello-client-pass
+  - it is a deployment labeled with *`app=pass`*
+- hello-client-fail
+  - it is a deployment labeled with *`app=fail`*
+
+Those two deployments are in one yaml: [hello-client.yaml](./hello-client.yaml)
+
+- hello-server
+  - Deployment and service labeled with *`hello-server`*
+  - The workload manifest is [hello-server.yaml](./hello-server.yaml)
