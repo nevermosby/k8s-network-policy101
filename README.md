@@ -50,8 +50,17 @@ This time, our goal is to make *`hello-server`* workload only be accessed by the
 
 You should find:
 - the workload of the **default** namesapce cannot access the *`hello-server`* service anymore
-- the workload in the namespace labeled with *`team:green`* can have access to the *`hello-server`* service in the **default** namespace
+- the workload in the namespace labeled with *`team:green`* will have access to the *`hello-server`* service in the **default** namespace
 
-## Default network policy (TODO)
-- deny all traffic from other namespaces
-- whitelist for egress
+## Combine two network policies together
+I have recored a video to show how those two network policies work together:
+
+[![2-np-work](https://img.youtube.com/vi/RI6034AfdTs/0.jpg)](https://www.youtube.com/watch?v=RI6034AfdTs)
+
+It is found that:
+- the network policy of pod level and namespace level can be combined to use
+- new policy will take effect immediately once created
+
+## Recommended default network policy
+- deny all traffic from other namespaces: [default-namespace-egreee.yaml](./network-policy/default-namespace-egreee.yaml)
+- whitelist for egress(todo)
