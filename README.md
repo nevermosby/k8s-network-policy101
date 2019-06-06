@@ -65,5 +65,14 @@ It is found that:
 - deny all external traffic but allow internal traffic from other namespaces: [default-namespace-egress.yaml](./network-policy/default-namespace-egress.yaml)
   
   By default, we want the workload cannot access outside the cluster but can access inside the cluster(across the namespaces). We can use the network policy above.
+
+- whitelist for namespace egress
   
-- whitelist for egress(todo)
+  I have defined an example for namespace egress policy. It is found here:[ip-block-ns-egress.yaml](./network-policy/ip-block-ns-egress.yaml). You can use the command below to test:
+```bash
+# access the pod
+kubectl exec -ti [pod-name] bash
+# inside the pod
+curl [target IP]
+ping [target IP]
+```
