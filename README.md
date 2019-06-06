@@ -62,5 +62,8 @@ It is found that:
 - new policy will take effect immediately once created
 
 ## Recommended default network policy
-- deny all traffic from other namespaces: [default-namespace-egreee.yaml](./network-policy/default-namespace-egreee.yaml)
+- deny all external traffic but allow internal traffic from other namespaces: [default-namespace-egress.yaml](./network-policy/default-namespace-egress.yaml)
+  
+  By default, we want the workload cannot access outside the cluster but can access inside the cluster(across the namespaces). We can use the network policy above.
+  
 - whitelist for egress(todo)
