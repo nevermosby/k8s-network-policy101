@@ -1,6 +1,6 @@
 # Kubernetes network policy 101
 
-You can find a related blog here：https://davidlovezoe.wordpress.com/2019/06/10/kubernetes-network-policy-101/
+You can find a related blog here：https://davidlovezoe.club/wordpress/archives/438
 
 ## Provision the kubernetes cluster with network policy enabled on GKE
 ```bash
